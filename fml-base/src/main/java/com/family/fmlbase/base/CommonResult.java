@@ -1,6 +1,5 @@
 package com.family.fmlbase.base;
 
-import com.gxy.service.base.CommonCode;
 import lombok.Data;
 import org.slf4j.MDC;
 
@@ -51,7 +50,7 @@ public class CommonResult<T> implements Serializable {
         return new CommonResult(def.getCode(), def.getMessage());
     }
 
- /*   public Integer getCode() {
+  public Integer getCode() {
         return this.code;
     }
 
@@ -97,5 +96,5 @@ public class CommonResult<T> implements Serializable {
 
     public void setTotal(Integer total) {
         this.total = total;
-    }*/
+    }
 }
