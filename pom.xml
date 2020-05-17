@@ -16,6 +16,7 @@
     <modules>
         <module>fml-gateway-server</module>
         <module>fml-eureka-server</module>
+        <module>fml-base</module>
     </modules>
 
 
