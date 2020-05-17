@@ -1,13 +1,19 @@
 
-
 server:
   tomcat:
     max-threads: 3000
     min-spare-threads: 10
-  port: 8761
+  port: 80
 spring:
   application:
-    name: fml-eureka-server
+    name: fml-gateway-server
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
@@ -23,22 +29,12 @@ spring:
       test-on-borrow: false
       test-while-idle: true
       time-between-eviction-runs-millis: 18800
-  transaction:
-    rollback-on-commit-failure: true
-  jackson:
-    time-zone: GMT+8
-    date-format: yyyy-MM-dd HH:mm:ss
-  servlet:
-    multipart:
-      max-file-size: 5MB
-      max-request-size: 10MB
+    transaction:
+      rollback-on-commit-failure: true
 eureka:
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
   client:
     service-url:
-      defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
+      defaultZone: http://localhost:8761/eureka/
     should-unregister-on-shutdown: true
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true

@@ -24,13 +24,20 @@ spring:
       time-between-eviction-runs-millis: 18800
   transaction:
     rollback-on-commit-failure: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
 eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
     should-unregister-on-shutdown: true
     register-with-eureka: false
-    fetch-registry: true
+    fetch-registry: false
