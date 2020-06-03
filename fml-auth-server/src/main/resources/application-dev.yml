@@ -1,0 +1,23 @@
+
+server:
+  tomcat:
+    max-threads: 3000
+    min-spare-threads: 10
+  port: 8088
+spring:
+  application:
+    name: fml-auth-server
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    should-unregister-on-shutdown: true
+    register-with-eureka: true
+    fetch-registry: true
