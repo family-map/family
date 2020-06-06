@@ -21,3 +21,7 @@ eureka:
     should-unregister-on-shutdown: true
     register-with-eureka: true
     fetch-registry: true
+
+fyk:
+  authorization:
+    token-store: jwt_sy
