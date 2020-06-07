@@ -31,17 +31,6 @@ spring:
       time-between-eviction-runs-millis: 18800
     transaction:
       rollback-on-commit-failure: true
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: baidu.com
-          uri: https://www.baidu.com/
-          predicates:
-            - Path=/app/
 eureka:
   client:
     service-url:
@@ -49,7 +38,3 @@ eureka:
     should-unregister-on-shutdown: true
     register-with-eureka: true
     fetch-registry: true
-
-white_list:
-  - /api/
-  - /api/auth
